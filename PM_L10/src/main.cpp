@@ -2,8 +2,10 @@
 
 //Analog read
 
-int readPin = A0;
-int v2 = 0;
+int readPin = A3;
+int readVal;
+float v2 = 0;
+int del = 500;
 
 
 void setup() {
@@ -13,6 +15,8 @@ Serial.begin(9600);
 
 void loop() {
   // put your main code here, to run repeatedly:
-  v2 = analogRead(readPin);
+  readVal = analogRead(readPin);
+  v2=(5./1023.)*readVal; //how we read voltage
   Serial.println(v2);
+  delay(del);
 }
