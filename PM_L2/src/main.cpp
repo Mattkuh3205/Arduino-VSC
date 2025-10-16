@@ -1,6 +1,6 @@
 #include <Arduino.h>
 
-
+//seeing how fast you can blink
 
 void setup() {
   // put your setup code here, to run once:
