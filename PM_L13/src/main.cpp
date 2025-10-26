@@ -49,7 +49,7 @@ if(v2==5){
     digitalWrite(led, HIGH);
 }
 
-if(v2!=5){
+if(v2<4){
     digitalWrite(led, LOW);
 }
 }
