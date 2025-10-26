@@ -1,18 +1,24 @@
 #include <Arduino.h>
 
-// put function declarations here:
-int myFunction(int, int);
+int potPin = A0;
+int led = 10;
+int readVal;
+float ledVal;
+
 
 void setup() {
-  // put your setup code here, to run once:
-  int result = myFunction(2, 3);
+  Serial.begin(9600);
+  pinMode(potPin, INPUT);
+  pinMode(led, OUTPUT);
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
-}
+ readVal = analogRead(potPin);
+ 
+ ledVal = (255./1023.)*readVal;
 
-// put function definitions here:
-int myFunction(int x, int y) {
-  return x + y;
+analogWrite(led, ledVal);
+Serial.println(ledVal);
+
+
 }
