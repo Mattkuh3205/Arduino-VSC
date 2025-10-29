@@ -41,7 +41,7 @@ void loop() {
 
   }
 
-  number = Serial.parseInt(); 
+  myNum = Serial.readString(); 
 
   
 
@@ -49,7 +49,7 @@ void loop() {
 
   Vout = (5./1023.)*readVal;
   time = Vout;
-  int warning = 200;
+  //int warning = 200;
    
   
   
@@ -62,11 +62,10 @@ void loop() {
   //PWM fade
  
 
-if(number == 1){ 
+if(myNum == "1"){ 
 while(true){
   
-   readVal = analogRead(potPin); //reads 0-1023 serial signal
-
+  readVal = analogRead(potPin); //reads 0-1023 serial signal
   Vout = (5./1023.)*readVal;
   time = Vout;
 
@@ -105,13 +104,25 @@ for(int x = 255; x>=0; x-=5){
     analogWrite(led4, x);
     delay(time);
   }
+if(readVal <200){
+  Serial.println(message);
+  while(Serial.available()==0){
+    //holds here until user input
+  }
+  myNum = Serial.readString(); 
+  
+}
  
-}
-
-}
+      }//while loop
 
 
-}
+
+    }//if loop 
+
+
+
+}//void loop
+
 
 
   
