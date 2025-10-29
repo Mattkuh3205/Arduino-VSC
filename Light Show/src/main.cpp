@@ -10,6 +10,7 @@ int readVal;
 int Vout;
 
 String message = "Please select 1-10 for light show: ";
+String myNum;
 
 int time;
 int number;
@@ -33,16 +34,16 @@ void loop() {
   I want to be able to use the pot to either increase speed, reverse order, etc....
   */
 
-  /* I want to implement this in later for choices
-  Serial.print(message);
+  // I want to implement this in later for choices
+ Serial.print(message);
   while(Serial.available()==0){
 
 
   }
 
-  number = Serial.parseInt(); */
+  number = Serial.parseInt(); 
 
-
+  
 
   readVal = analogRead(potPin); //reads 0-1023 serial signal
 
@@ -61,7 +62,13 @@ void loop() {
   //PWM fade
  
 
+if(number == 1){ 
+while(true){
+  
+   readVal = analogRead(potPin); //reads 0-1023 serial signal
 
+  Vout = (5./1023.)*readVal;
+  time = Vout;
 
 for(int x = 0; x<=255; x+=5){
     analogWrite(led1, x);
@@ -97,16 +104,21 @@ for(int x = 0; x<=255; x+=5){
 for(int x = 255; x>=0; x-=5){
     analogWrite(led4, x);
     delay(time);
-  } 
-
-
-
-
-  if(readVal <warning){
-    Serial.println("Warning: Too fast!");
   }
+ 
+}
 
 }
+
+
+}
+
+
+  
+
+
+
+
 
   
 
