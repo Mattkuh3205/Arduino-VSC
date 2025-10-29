@@ -41,9 +41,9 @@ void loop() {
 
   }
 
-  myNum = Serial.readString(); 
+  myNum = Serial.readString(); //maybe change this to parseInt
 
-  
+ // myNum = Serial.parseFloat(); //this is for potentially reading float values
 
   readVal = analogRead(potPin); //reads 0-1023 serial signal
 
@@ -62,7 +62,7 @@ void loop() {
   //PWM fade
  
 
-if(myNum == "1"){ 
+if(myNum = '1'){ 
 while(true){
   
   readVal = analogRead(potPin); //reads 0-1023 serial signal
@@ -104,6 +104,8 @@ for(int x = 255; x>=0; x-=5){
     analogWrite(led4, x);
     delay(time);
   }
+
+  //stops loop (may need to fix)
 if(readVal <200){
   Serial.println(message);
   while(Serial.available()==0){
@@ -118,6 +120,7 @@ if(readVal <200){
 
 
     }//if loop 
+   
 
 
 
