@@ -10,10 +10,14 @@ int readVal;
 int Vout;
 
 String message = "Please select 1-10 for light show: ";
-String myNum;
+int myNum;
 
 int time;
 int number;
+
+int button = 7;
+
+int buttonState =0;
 
 void setup() {
 Serial.begin(9600);
@@ -24,6 +28,8 @@ pinMode(led3, OUTPUT);
 pinMode(led4, OUTPUT);
 
 pinMode(potPin, INPUT);
+pinMode(button, INPUT);
+
 }
 
 void loop() {
@@ -35,40 +41,55 @@ void loop() {
   */
 
   // I want to implement this in later for choices
- Serial.print(message);
+ Serial.println(message);
   while(Serial.available()==0){
 
 
   }
 
-  myNum = Serial.readString(); //maybe change this to parseInt
+  myNum = Serial.parseInt(); //maybe change this to parseInt
 
- // myNum = Serial.parseFloat(); //this is for potentially reading float values
+Serial.println("How many times do you want the program to loop?");
+ while(Serial.available()==0){
 
+
+  }
+
+  number = Serial.parseInt();
+ 
+
+
+
+  
   readVal = analogRead(potPin); //reads 0-1023 serial signal
 
   Vout = (5./1023.)*readVal;
   time = Vout;
   //int warning = 200;
    
+  buttonState = digitalRead(button);
   
   
-  //Serial.println(readVal);
+
 
   ///////////////////////////////////////////////////////////////////////////////////
 
   //Light show stuff
 
   //PWM fade
- 
 
-if(myNum = '1'){ 
-while(true){
+
+
+
+/////////////////////////////////
+
   
   readVal = analogRead(potPin); //reads 0-1023 serial signal
   Vout = (5./1023.)*readVal;
   time = Vout;
 
+if(myNum == 1){
+for(int i=1; i<=number; i=i+1){
 for(int x = 0; x<=255; x+=5){
     analogWrite(led1, x);
     delay(time);
@@ -104,26 +125,22 @@ for(int x = 255; x>=0; x-=5){
     analogWrite(led4, x);
     delay(time);
   }
-
-  //stops loop (may need to fix)
-if(readVal <200){
-  Serial.println(message);
-  while(Serial.available()==0){
-    //holds here until user input
-  }
-  myNum = Serial.readString(); 
-  
 }
- 
-      }//while loop
+}
 
 
+//option 2
+if(myNum == 2){
 
-    }//if loop 
-   
-
-
-
+for(int i=1; i<=number; i=i+1){
+digitalWrite(led1, HIGH);
+digitalWrite(led3, HIGH);
+delay(500);
+digitalWrite(led1, LOW);
+digitalWrite(led3, LOW);
+delay(500);
+}
+}
 }//void loop
 
 
