@@ -88,7 +88,7 @@ Serial.println("How many times do you want the program to loop?");
   Vout = (5./1023.)*readVal;
   time = Vout;
 
-if(myNum == 1){
+ if(myNum == 1){
 for(int i=1; i<=number; i=i+1){
 for(int x = 0; x<=255; x+=5){
     analogWrite(led1, x);
@@ -124,10 +124,11 @@ for(int x = 0; x<=255; x+=5){
 for(int x = 255; x>=0; x-=5){
     analogWrite(led4, x);
     delay(time);
-  }
+  }  
 }
+//need a way to deal with infinite loops without using while
+//////////////////////////////////////////////////////////////////////////////////
 }
-
                            
 //option 2
 if(myNum == 2){
@@ -139,8 +140,21 @@ delay(500);
 digitalWrite(led1, LOW);
 digitalWrite(led3, LOW);
 delay(500);
+
 }
+/////////////////////////////////
 }
+
+/* if(myNum ==3){
+  for(int i=1; i<=number; i=i+1){
+  digitalWrite(led1, HIGH);
+  delay(200);
+  digitalWrite(led1, LOW);
+  delay(200);
+  }
+} */
+
+
 }//void loop
 
 
