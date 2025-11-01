@@ -40,50 +40,39 @@ void loop() {
   I want to be able to use the pot to either increase speed, reverse order, etc....
   */
 
-  // I want to implement this in later for choices
- Serial.println(message);
+  //prints out first message
+  Serial.println(message);
   while(Serial.available()==0){
-
-
+    //hold here for input
   }
+  myNum = Serial.parseInt(); 
 
-  myNum = Serial.parseInt(); //maybe change this to parseInt
+/////////////////////////////////////////////////////////////////////
 
-Serial.println("How many times do you want the program to loop?");
+
+ Serial.println("How many times do you want the program to loop?");
  while(Serial.available()==0){
-
-
+    //hold here for input
   }
-
   number = Serial.parseInt();
  
-
-
-
+ ////////////////////////////////////////////////////////////////////////////////////
   
   readVal = analogRead(potPin); //reads 0-1023 serial signal
 
   Vout = (5./1023.)*readVal;
-  time = Vout;
-  //int warning = 200;
+  time = Vout; //with any of the loops with delay as time, the potentiometer controls the speed of it
+  //thinking about adding in a fail safe to where if the pot reaches a certain number, it will stop, and ask for another input
    
-  buttonState = digitalRead(button);
+  buttonState = digitalRead(button); //may implement this later
   
-  
-
 
   ///////////////////////////////////////////////////////////////////////////////////
 
   //Light show stuff
 
-  //PWM fade
-
-
-
-
 /////////////////////////////////
 
-  
   readVal = analogRead(potPin); //reads 0-1023 serial signal
   Vout = (5./1023.)*readVal;
   time = Vout;
@@ -108,9 +97,10 @@ for(int x = 255; x>=0; x-=5){
     delay(time);
   }
 
-    for(int x = 0; x<=255; x+=5){
-    analogWrite(led3, x);
-    delay(time);
+
+for(int x = 0; x<=255; x+=5){
+  analogWrite(led3, x);
+  delay(time);
   }
 for(int x = 255; x>=0; x-=5){
     analogWrite(led3, x);
@@ -146,14 +136,6 @@ delay(500);
 /////////////////////////////////
 }
 
-/* if(myNum ==3){
-  for(int i=1; i<=number; i=i+1){
-  digitalWrite(led1, HIGH);
-  delay(200);
-  digitalWrite(led1, LOW);
-  delay(200);
-  }
-} */
 
 
 }//void loop
