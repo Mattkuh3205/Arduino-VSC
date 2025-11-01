@@ -132,10 +132,51 @@ digitalWrite(led1, LOW);
 digitalWrite(led3, LOW);
 delay(500);
 
+digitalWrite(led2, HIGH);
+digitalWrite(led4, HIGH);
+delay(500);
+digitalWrite(led2, LOW);
+digitalWrite(led4, LOW);
+delay(500);
 }
-/////////////////////////////////
 }
 
+/////////////////////////////////
+//option 3
+
+if(myNum == 3){
+  digitalWrite(led1, HIGH);
+  delay(time); //placeholder value (need to implement something)
+  digitalWrite(led1, LOW);
+  delay(time);
+  digitalWrite(led2, HIGH);
+  delay(time);
+  digitalWrite(led2, LOW);
+  delay(time);
+  digitalWrite(led3, HIGH);
+  delay(time);
+  digitalWrite(led3, LOW);
+  delay(time);
+  digitalWrite(led4, HIGH);
+  delay(time);
+  digitalWrite(led4, LOW);
+  delay(time);  
+}
+
+/* if(myNum == 4){
+   Serial.println("Please enter a sequence between 1 and 4");
+   int n1;
+   int n2;
+   int n3;
+   int n4;
+  while(Serial.available()==0){
+    //hold here for input
+  }
+  n1 = Serial.parseInt();
+  n2 = Serial.parseInt();
+  n3 = Serial.parseInt();
+  n4 = Serial.parseInt();
+} */
 
 
 }//void loop
