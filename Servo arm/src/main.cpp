@@ -36,10 +36,16 @@ void loop() {
  myServo1.write(readVal1/5.68);
 }  */
 
-for(int x=readVal1; x<=1023;x=x+1){ //this controls arm angle
+for(int x=readVal1; x<=1023;x=x+1){ //this controls base
  myServo2.write(readVal1/5.68);
- myServo1.write(readVal1/5.68);
+} 
+
+
+for(int x=readVal2; x<=1023;x=x+1){ //this controls arm angle
+
+
   
+ myServo1.write(readVal2/5.68);
 } 
 
 //notes: issue is that we may need a 360 degree servo instead
