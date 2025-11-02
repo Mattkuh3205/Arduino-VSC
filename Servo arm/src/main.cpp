@@ -32,14 +32,16 @@ void loop() {
   readVal1 = analogRead(potPin1);
   readVal2 = analogRead(potPin2);
 
- for(int x=readVal1; x<=1023;x=x+1){
+ /* for(int x=readVal1; x<=1023;x=x+1){ //for prototype, we're using potentiometer, need a rotary 360 degree encoder
  myServo1.write(readVal1/5.68);
-} 
+}  */
 
+for(int x=readVal1; x<=1023;x=x+1){
+ myServo2.write(readVal1/5.68);
+} 
 for(int x=readVal2; x<=1023;x=x+1){
- myServo2.write(readVal2/5.68);
- myServo3.write(readVal2/5.68);
-
+ myServo1.write(readVal2/5.68);
 } 
+//notes: issue is that we may need a 360 degree servo instead
 
 }
