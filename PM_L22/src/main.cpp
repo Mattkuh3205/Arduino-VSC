@@ -49,7 +49,7 @@ void loop() {
 
  
 for(int x=readVal; x<=1023;x=x+1){
- myServo.write(readVal/5);
+ myServo.write(readVal/5.68);
 }
 
 
