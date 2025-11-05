@@ -11,14 +11,13 @@ Servo myServo2;
 Servo myServo3;
 
 
-String prompt;
+//String prompt;
 
 int potPin1 = A0; //base controller
 int potPin2 = A1; //arm controller
 int readVal1;
 int readVal2;
 
-int volt;
 
 void setup() {
 Serial.begin(9600); 
@@ -29,25 +28,20 @@ myServo3.attach(servo3);
 
 void loop() {
 
-  readVal1 = analogRead(potPin1);
-  readVal2 = analogRead(potPin2);
+readVal1 = analogRead(potPin1);
+readVal2 = analogRead(potPin2);
 
- /* for(int x=readVal1; x<=1023;x=x+1){ //for prototype, we're using potentiometer, need a rotary 360 degree encoder
- myServo1.write(readVal1/5.68);
-}  */
 
+
+//servo 1: base - use circular servo horn - using pot 1
 for(int x=readVal1; x<=1023;x=x+1){ //this controls base
  myServo2.write(readVal1/5.68);
 } 
 
-
+//servo 2: arm 1 - use regular horn + extension - using pot 2
 for(int x=readVal2; x<=1023;x=x+1){ //this controls arm angle
-
-
-  
  myServo1.write(readVal2/5.68);
 } 
 
-//notes: issue is that we may need a 360 degree servo instead
 
 }
